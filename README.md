@@ -15,7 +15,12 @@ A compact Python simulator combines a GARCH(1,1) model with a parabolic intraday
 
 ## Mathematical ideas
 
-* $\sqrt{4}$
+* GARCH(1,1) model with no seasonality and zero-mean:
+
+$$
+\epsilon_t = \sigma_t z_t
+$$
+where $z_t$ are iid standard Normal independent of $\sigma_t$
 
 ## Requirements
 
