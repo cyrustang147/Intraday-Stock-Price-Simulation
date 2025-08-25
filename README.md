@@ -156,4 +156,4 @@ MIT License — adapt and reuse freely.
 
 ## Contact / author
 
-Cyrus Tang — tanghoyin0486@gmail.com, Github: cyrustang147
+Cyrus Tang — Github: cyrustang147
