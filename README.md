@@ -56,25 +56,25 @@ pip install numpy pandas matplotlib
 Inside a Python script or notebook:
 
 ```python
-sim = simulate_trades(dt=1.0, seed=67)
+sim = simulate_trades(dt = 1.0, seed = 67)
 
 # Access trade-level data
 trade_times = sim['trade_times']
-prices = sim['prices']
+trade_prices = sim['prices']
 volumes = sim['volumes']
 
 # Access grid-level data
-midprice_grid = sim['midprice_grid']
+midprices = sim['midprice_grid']
 grid_sigma = sim['grid_sigma']
+times_grid = sim['times_grid']
 
-# Convert to DataFrame
-import pandas as pd
-df = pd.DataFrame({'time': trade_times, 'price': prices, 'volume': volumes})
+# convert to dataframe for easy storage
+df = pd.DataFrame({'time': trade_times, 'price': trade_prices, 'volume': volumes})
 ```
 
 ## Example plots (as in the provided script)
 
-* **Showcase 1**: first 60 seconds — blue line: midprice; red dots: tick-rounded trades, observe the relationship between trades (arrival time, price) and midprice path.
+* **Showcase 1**: first 60 seconds after open — blue line: midprice; red dots: tick-rounded trades, observe the relationship between trades (arrival time, price) and midprice path.
 * **Showcase 2**: full-day midprice path (line) plus minutely aggregated traded volumes (bars), a typical intraday stock chart.
 
 To reproduce the example plots: open a Jupyter notebook, run the simulation, then use `matplotlib` to visualise
