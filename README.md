@@ -13,6 +13,8 @@ A compact Python simulator combines a GARCH(1,1) model with a parabolic intraday
 * Add microstructure noise to mid-prices to generate trade prices
 * Returns trade-level outputs (`time`, `price`, `volume`) plus useful grid-level arrays (`midprice_grid`, `grid_sigma`, `times_grid`).
 
+(See Maths.md for background maths ideas)
+
 ## Requirements
 
 * Python 3.8+
@@ -29,10 +31,17 @@ pip install numpy pandas matplotlib
 ## Functions (what's in the code)
 
 * `intraday_parabolic_seasonality(n_steps, open_amplitude, close_amplitude)`
+  * Builds a parabolic seasonal factor `s_t` on `[0,1]` such that `mean(s_t**2) == 1` and `s(0)/min{s_t}==open_amplitude`, `s(1)/min{s_t}==close_amplitude`
 
 * `simulate_coarse_garch_with_seasonality(rng, daily_vol, open_amplitude, close_amplitude, trading_seconds, dt_coarse, alpha_g, beta_g, mu=0.0, burnin=500)`
+  * Simulates coarse-grid GARCH(1,1) volatilities and log-returns and applies the seasonal factor `s` multiplicatively to variance.
+  * Returns `coarse_returns`, `coarse_sigma`, and `s`.
 
 * `simulate_trades(...)`
+  * Generates a mid-price path by exponentiating cumulative coarse log-returns.
+  * Builds a volatility-dependent intensity `lambda_t` for an inhomogeneous Poisson process (trades per second).
+  * Simulates trades inside each grid interval, samples volumes (log-normal) scaled to local volatility, and applies microstructure noise to prices.
+  * Returns a dictionary with arrays: `trade_times`, `prices`, `volumes`, `grid_sigma`, `times_grid`, `midprice_grid`.
 
 (See code comments for detailed explanations.)
  
