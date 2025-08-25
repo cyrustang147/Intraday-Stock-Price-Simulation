@@ -1,6 +1,6 @@
 # Intraday-Stock-Price-Simulation
 
-A compact Python simulator that generates intraday mid-prices and trade events by combining a coarse-grid GARCH(1,1) model with a multiplicative parabolic intraday seasonal volatility profile. The simulator produces time-stamped trades (price, volume) and convenient grid outputs for analysis and plotting.
+A compact Python simulator combines a GARCH(1,1) model with a parabolic intraday volatility trend and an inhomogeneous Poisson simulator. The simulator generates intraday trade events (time, price, volume) and convenient grid outputs for analysis and plotting.
 
 ---
 
