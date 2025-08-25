@@ -129,6 +129,20 @@ df = pd.DataFrame({'time': trade_times, 'price': prices, 'volume': volumes})
 
 To reproduce the example plots: open a Jupyter notebook, run the simulation, then use `matplotlib` to visualise
 
+## Parameters you may want to tune
+
+* `daily_vol`: target daily volatility (std). Typical values: `0.01 - 0.05` depending on asset.
+
+* `open_amplitude`, `close_amplitude`: control how much more volatile open/close are relative to the midday trough. Must be > 1.0.
+
+* `alpha_g`, `beta_g`: GARCH(1,1) parameters (alpha + beta < 1 required).
+
+* `lambda0`, `k_intensity`: baseline trade rate and sensitivity to volatility.
+
+* `v0`, `vol_gamma`, `volume_noise_sigma`: volume scale, dependency on volatility, and lognormal noise level.
+
+* `micro_sigma`, `tick_size`: microstructure noise magnitude and tick discretisation.
+
 ## Common extensions / ideas
 
 * Add signed trade impact where large volumes move the mid-price (temporary or permanent impact).
