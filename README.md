@@ -28,7 +28,7 @@ Install with pip if needed:
 pip install numpy pandas matplotlib
 ```
 
-## Functions (what's in the code)
+## Functions (what's in simulator.py)
 
 * `intraday_parabolic_seasonality(n_steps, open_amplitude, close_amplitude)`
   * Builds a parabolic seasonal factor `s_t` on `[0,1]` such that `mean(s_t**2) == 1` and `s(0)/min{s_t}==open_amplitude`, `s(1)/min{s_t}==close_amplitude`
@@ -72,7 +72,7 @@ times_grid = sim['times_grid']
 df = pd.DataFrame({'time': trade_times, 'price': trade_prices, 'volume': volumes})
 ```
 
-## Example plots (as in the provided script)
+## Example plots (as in simulator_demo.ipynb)
 
 * **Showcase 1**: first 60 seconds after open — blue line: midprice; red dots: tick-rounded trades, observe the relationship between trades (arrival time, price) and midprice path.
 
