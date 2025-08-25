@@ -75,9 +75,14 @@ df = pd.DataFrame({'time': trade_times, 'price': trade_prices, 'volume': volumes
 ## Example plots (as in the provided script)
 
 * **Showcase 1**: first 60 seconds after open — blue line: midprice; red dots: tick-rounded trades, observe the relationship between trades (arrival time, price) and midprice path.
+
+![Showcase 1](plots/showcase1.png)
+
 * **Showcase 2**: full-day midprice path (line) plus minutely aggregated traded volumes (bars), a typical intraday stock chart.
 
-To reproduce the example plots: open a Jupyter notebook, run the simulation, then use `matplotlib` to visualise
+![Showcase 2](plots/showcase2.png)
+
+To reproduce the example plots: open a Jupyter notebook, run the simulation with `seed = 67`, then use `matplotlib` to visualise
 
 ## Parameters you may want to tune
 
